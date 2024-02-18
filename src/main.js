@@ -17,12 +17,7 @@ console.log('#9. JavaScript homework example file')
  */
 
 function handleButtonClick(buttonId, message) {
-  const button = document.getElementById(buttonId)
-  if (button) {
-    button.addEventListener('click', () => {
-      console.log(message)
-    })
-  }
+  // code here
 }
 
 // Демонстрація використання функції (припустимо, що HTML містить кнопку з ID 'myButton')
@@ -42,9 +37,7 @@ function handleButtonClick(buttonId, message) {
  */
 
 function trackMousePosition() {
-  document.addEventListener('mousemove', (event) => {
-    console.log(`Mouse X: ${event.clientX}, Mouse Y: ${event.clientY}`)
-  })
+  // code here
 }
 
 // console.log(trackMousePosition())
@@ -74,12 +67,7 @@ function trackMousePosition() {
 // createTestList()
 
 function setupEventDelegation(selector) {
-  const list = document.querySelector(selector)
-  list.addEventListener('click', (event) => {
-    if (event.target.tagName === 'LI') {
-      console.log(`Item clicked: ${event.target.textContent.trim()}`)
-    }
-  })
+  // code here
 }
 
 // setupEventDelegation('#testList')
