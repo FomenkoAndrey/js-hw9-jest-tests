@@ -1,16 +1,23 @@
-import { setUserInfoCookie } from '../main'
+import { setupEventDelegation } from '../main'
 
-describe('setUserInfoCookie', () => {
-  beforeAll(() => {
-    Object.defineProperty(window.document, 'cookie', {
-      writable: true,
-      value: ''
-    })
-  })
+describe('setupEventDelegation', () => {
+  document.body.innerHTML = `
+    <ul id="testList">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    `
 
-  test('sets a userInfo cookie with useful information for 10 seconds', () => {
-    setUserInfoCookie('language', 'uk')
+  it('should log the text of the clicked list item', () => {
+    const mockConsoleLog = jest.spyOn(console, 'log').mockImplementation(() => {})
+    setupEventDelegation('#testList')
 
-    expect(document.cookie).toContain('userInfo=language%3Duk')
+    const secondItem = document.querySelector('#testList li:nth-child(2)')
+    secondItem.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+
+    expect(mockConsoleLog).toHaveBeenCalledWith('Item clicked: Item 2')
+
+    mockConsoleLog.mockRestore()
   })
 })
