@@ -1,10 +1,10 @@
 import { trackMousePosition } from '../main'
 
 describe('trackMousePosition', () => {
-  it('should log mouse position to the console on mousemove event', () => {
+  test('should log mouse position to the console on mousemove event', () => {
     // Мок document.addEventListener
-    const addEventListenerSpy = jest.spyOn(document, 'addEventListener')
-    const mockConsoleLog = jest.spyOn(console, 'log')
+    const addEventListenerSpy = vi.spyOn(document, 'addEventListener')
+    const mockConsoleLog = vi.spyOn(console, 'log')
 
     // Викликаємо функцію для встановлення обробника події
     trackMousePosition()

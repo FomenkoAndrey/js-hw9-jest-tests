@@ -9,8 +9,8 @@ describe('setupEventDelegation', () => {
     </ul>
     `
 
-  it('should log the text of the clicked list item', () => {
-    const mockConsoleLog = jest.spyOn(console, 'log').mockImplementation(() => {})
+  test('should log the text of the clicked list item', () => {
+    const mockConsoleLog = vi.spyOn(console, 'log').mockImplementation(() => {})
     setupEventDelegation('#testList')
 
     const secondItem = document.querySelector('#testList li:nth-child(2)')

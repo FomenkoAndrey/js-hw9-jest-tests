@@ -7,7 +7,7 @@ describe('handleButtonClick', () => {
   })
 
   test('logs the message to the console on button click', () => {
-    const consoleSpy = jest.spyOn(console, 'log')
+    const consoleSpy = vi.spyOn(console, 'log')
     handleButtonClick('testButton', 'Test message')
 
     // Симулювання кліку на кнопку
